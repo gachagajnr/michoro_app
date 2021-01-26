@@ -20,7 +20,7 @@ const LoggedInStack = createStackNavigator();
 const homeOptions = {
   title: 'Home',
   headerTitleStyle: {
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
   },
   headerRight: () => <ThemeController />,
 };

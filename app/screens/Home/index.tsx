@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Button } from 'react-native-paper';
+import { Button, List } from 'react-native-paper';
 
 import { useDispatch } from 'react-redux';
 import * as loginActions from 'app/store/actions/loginActions';
@@ -11,9 +11,14 @@ const Home: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Button icon="logout" mode="outlined" onPress={onLogout}>
+      <Button icon="logout" mode="contained" onPress={onLogout}>
         Logout
       </Button>
+      <List.Item
+        title="First Item"
+        description="Item description"
+        left={(props) => <List.Icon {...props} icon="folder" />}
+      />
     </View>
   );
 };
