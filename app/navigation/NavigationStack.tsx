@@ -19,10 +19,10 @@ const LoggedInStack = createStackNavigator();
 
 const homeOptions = {
   title: 'Home',
-  headerTitleStyle: {
+  // headerTitleStyle: {
     // fontWeight: 'bold',
-  },
-  headerRight: () => <ThemeController />,
+  // },
+  // headerRight: () => <ThemeController />,
 };
 
 interface IState {
@@ -77,7 +77,7 @@ const App: React.FC<IProps> = (props: IProps) => {
 
   return (
     <NavigationContainer ref={navigationRef} theme={theme}>
-      <StatusBar barStyle={theme.dark ? 'light-content' : 'dark-content'} />
+      {/* <StatusBar barStyle={theme.dark ? 'light-content' : 'dark-content'} /> */}
 
       <Stack.Navigator>
         {isLoggedIn ? (
