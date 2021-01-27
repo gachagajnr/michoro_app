@@ -24,7 +24,7 @@ const Login: React.FC = () => {
       <View style={styles.container}>
         <Formik
           initialValues={{ email: '', password: '' }}
-          onSubmit={(values) => console.log(values)}>
+          onSubmit={onLogin}>
           {({ handleChange, handleBlur, handleSubmit, values }) => (
             <View>
               <TextInput
