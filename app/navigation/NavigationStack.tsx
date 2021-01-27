@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux';
 import { navigationRef } from './NavigationService';
 
 import Login from 'app/screens/Login';
+import SignUp from 'app/screens/SignUp';
+
 import Home from 'app/screens/Home';
 import ForgotPassword from 'app/screens/ForgotPassword';
 
@@ -42,6 +44,16 @@ const AuthNavigator = () => {
       <Stack.Screen
         name="Login"
         component={Login}
+        options={{
+          // When logging out, a pop animation feels intuitive
+          // You can remove this if you want the default 'push' animation
+          animationTypeForReplace: isLoggedIn ? 'push' : 'pop',
+          headerRight: () => <ThemeController />,
+        }}
+      />
+      <Stack.Screen
+        name="SignUp"
+        component={SignUp}
         options={{
           // When logging out, a pop animation feels intuitive
           // You can remove this if you want the default 'push' animation

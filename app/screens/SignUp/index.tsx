@@ -3,27 +3,20 @@ import { View,Text } from 'react-native';
 import { Button, TextInput } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik } from 'formik';
-import * as loginActions from 'app/store/actions/loginActions';
-import styles from './styles';
-import { ILoginState } from 'app/models/reducers/login';
 import NavigationService from 'app/navigation/NavigationService';
 
-interface IState {
-  loginReducer: ILoginState;
-}
-
-const Login: React.FC = () => {
-  const id = useSelector((state: IState) => state.loginReducer.id);
-  const dispatch = useDispatch();
-  const onLogin = () => dispatch(loginActions.requestLogin('test', '1234'));
-  const onForgot = () => NavigationService.navigate('ForgotPassword');
-  const onSignup = () => NavigationService.navigate('SignUp');
+import styles from './styles';
+const SignUp: React.FC = () => {
+  const goBack = () => NavigationService.goBack();
+   const dispatch = useDispatch();
+   const onForgot = () => NavigationService.navigate('ForgotPassword');
+  const onLogin = () => NavigationService.navigate('Login');
 
   return (
     <View style={styles.container}>
-      <View style={styles.container}>
+       <View style={styles.container}>
         <Formik
-          initialValues={{ email: '', password: '' }}
+          initialValues={{ email: '', password: '',confirmpassword:'' }}
           onSubmit={(values) => console.log(values)}>
           {({ handleChange, handleBlur, handleSubmit, values }) => (
             <View>
@@ -45,12 +38,21 @@ const Login: React.FC = () => {
                 onBlur={handleBlur('password')}
                 value={values.password}
               />
+               <TextInput
+                mode="outlined"
+                label="Confirm Password"
+                style={styles.email}
+                placeholder="Confirm Password"
+                onChangeText={handleChange('confirmpassword')}
+                onBlur={handleBlur('confirmpassword')}
+                value={values.password}
+              />
 
               <Button
                 style={styles.loginButton}
                 mode="contained"
                 onPress={handleSubmit}>
-                Login
+                Sign up
               </Button>
             </View>
           )}
@@ -67,12 +69,12 @@ const Login: React.FC = () => {
         <Button
           mode="text"
           labelStyle={styles.labelStyle}
-          onPress={onSignup}>
-          Sign up
+          onPress={onLogin}>
+          Login
         </Button>
       </View>
     </View>
   );
 };
 
-export default Login;
+export default SignUp;
