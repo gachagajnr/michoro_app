@@ -20,11 +20,13 @@ const AuthStack = createStackNavigator();
 const LoggedInStack = createStackNavigator();
 
 const homeOptions = {
-  title: 'Home',
+  // title: 'Home',
   // headerTitleStyle: {
-    // fontWeight: 'bold',
+  // fontWeight: 'bold',
   // },
   // headerRight: () => <ThemeController />,
+  headerShown:false
+
 };
 
 interface IState {
@@ -48,7 +50,9 @@ const AuthNavigator = () => {
           // When logging out, a pop animation feels intuitive
           // You can remove this if you want the default 'push' animation
           animationTypeForReplace: isLoggedIn ? 'push' : 'pop',
-          headerRight: () => <ThemeController />,
+          // headerRight: () => <ThemeController />,
+          title: 'Login',
+          headerShown: false,
         }}
       />
       <Stack.Screen
@@ -58,7 +62,8 @@ const AuthNavigator = () => {
           // When logging out, a pop animation feels intuitive
           // You can remove this if you want the default 'push' animation
           animationTypeForReplace: isLoggedIn ? 'push' : 'pop',
-          headerRight: () => <ThemeController />,
+          // headerRight: () => <ThemeController />,
+          headerShown: false,
         }}
       />
       <Stack.Screen
@@ -68,7 +73,8 @@ const AuthNavigator = () => {
           // When logging out, a pop animation feels intuitive
           // You can remove this if you want the default 'push' animation
           animationTypeForReplace: isLoggedIn ? 'push' : 'pop',
-          headerRight: () => <ThemeController />,
+          // headerRight: () => <ThemeController />,
+          headerShown: false,
         }}
       />
     </AuthStack.Navigator>
@@ -100,13 +106,14 @@ const App: React.FC<IProps> = (props: IProps) => {
           />
         ) : (
           <Stack.Screen
-            name="Login"
+            name="Michoro"
             component={AuthNavigator}
             options={{
               // When logging out, a pop animation feels intuitive
               // You can remove this if you want the default 'push' animation
               animationTypeForReplace: isLoggedIn ? 'push' : 'pop',
               headerRight: () => <ThemeController />,
+              headerTitleAlign: 'center',
             }}
           />
         )}

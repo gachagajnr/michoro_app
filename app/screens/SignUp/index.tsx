@@ -8,8 +8,8 @@ import NavigationService from 'app/navigation/NavigationService';
 import styles from './styles';
 const SignUp: React.FC = () => {
   const goBack = () => NavigationService.goBack();
-   const dispatch = useDispatch();
-   const onForgot = () => NavigationService.navigate('ForgotPassword');
+  const dispatch = useDispatch();
+  const onForgot = () => NavigationService.navigate('ForgotPassword');
   const onLogin = () => NavigationService.navigate('Login');
 
   return (
