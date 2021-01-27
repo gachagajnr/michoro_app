@@ -32,6 +32,8 @@ const ForgotPassword: React.FC = () => {
               <Button
                 style={styles.loginButton}
                 mode="contained"
+                uppercase={false}
+                dark={true}
                 onPress={handleSubmit}>
                 Recover Account
               </Button>
@@ -39,7 +41,11 @@ const ForgotPassword: React.FC = () => {
           )}
         </Formik>
         <Text>or</Text>
-        <Button mode="text" labelStyle={styles.labelStyle} onPress={onLogin}>
+        <Button
+          mode="text"
+          uppercase={false}
+          labelStyle={styles.labelStyle}
+          onPress={onLogin}>
           Login
         </Button>
       </View>

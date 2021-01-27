@@ -95,7 +95,7 @@ const App: React.FC<IProps> = (props: IProps) => {
 
   return (
     <NavigationContainer ref={navigationRef} theme={theme}>
-      {/* <StatusBar barStyle={theme.dark ? 'light-content' : 'dark-content'} /> */}
+      <StatusBar barStyle={theme.dark ? 'light-content' : 'dark-content'} />
 
       <Stack.Navigator>
         {isLoggedIn ? (

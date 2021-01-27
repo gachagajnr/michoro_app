@@ -1,5 +1,5 @@
 import React from 'react';
-import { View,Text } from 'react-native';
+import { View, Text } from 'react-native';
 import { Button, TextInput } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik } from 'formik';
@@ -49,13 +49,15 @@ const Login: React.FC = () => {
               <Button
                 style={styles.loginButton}
                 mode="contained"
+                dark={true}
+                uppercase={false}
                 onPress={handleSubmit}>
                 Login
               </Button>
             </View>
           )}
         </Formik>
-        
+
         <Button
           mode="text"
           style={styles.forgot}
@@ -64,10 +66,7 @@ const Login: React.FC = () => {
           Forgot Password
         </Button>
         <Text>or</Text>
-        <Button
-          mode="text"
-          labelStyle={styles.labelStyle}
-          onPress={onSignup}>
+        <Button mode="text" labelStyle={styles.labelStyle} onPress={onSignup}>
           Sign up
         </Button>
       </View>

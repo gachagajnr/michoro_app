@@ -1,5 +1,5 @@
 import React from 'react';
-import { View,Text } from 'react-native';
+import { View, Text } from 'react-native';
 import { Button, TextInput } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik } from 'formik';
@@ -14,9 +14,9 @@ const SignUp: React.FC = () => {
 
   return (
     <View style={styles.container}>
-       <View style={styles.container}>
+      <View style={styles.container}>
         <Formik
-          initialValues={{ email: '', password: '',confirmpassword:'' }}
+          initialValues={{ email: '', password: '', confirmpassword: '' }}
           onSubmit={(values) => console.log(values)}>
           {({ handleChange, handleBlur, handleSubmit, values }) => (
             <View>
@@ -38,7 +38,7 @@ const SignUp: React.FC = () => {
                 onBlur={handleBlur('password')}
                 value={values.password}
               />
-               <TextInput
+              <TextInput
                 mode="outlined"
                 label="Confirm Password"
                 style={styles.email}
@@ -51,13 +51,15 @@ const SignUp: React.FC = () => {
               <Button
                 style={styles.loginButton}
                 mode="contained"
+                dark={true}
+                uppercase={false}
                 onPress={handleSubmit}>
                 Sign up
               </Button>
             </View>
           )}
         </Formik>
-        
+
         <Button
           mode="text"
           style={styles.forgot}
@@ -66,10 +68,7 @@ const SignUp: React.FC = () => {
           Forgot Password
         </Button>
         <Text>or</Text>
-        <Button
-          mode="text"
-          labelStyle={styles.labelStyle}
-          onPress={onLogin}>
+        <Button mode="text" labelStyle={styles.labelStyle} onPress={onLogin}>
           Login
         </Button>
       </View>
