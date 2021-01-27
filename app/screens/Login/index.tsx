@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View,Text } from 'react-native';
 import { Button, TextInput } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik } from 'formik';
@@ -27,7 +27,7 @@ const Login: React.FC = () => {
             <View>
               <TextInput
                 mode="outlined"
-                label='Email'
+                label="Email"
                 style={styles.email}
                 placeholder="Email"
                 onChangeText={handleChange('email')}
@@ -36,7 +36,7 @@ const Login: React.FC = () => {
               />
               <TextInput
                 mode="outlined"
-                label='Password'
+                label="Password"
                 style={styles.email}
                 placeholder="Password"
                 onChangeText={handleChange('password')}
@@ -53,13 +53,20 @@ const Login: React.FC = () => {
             </View>
           )}
         </Formik>
-
+        
         <Button
           mode="text"
           style={styles.forgot}
           labelStyle={styles.labelStyle}
           onPress={onForgot}>
           Forgot Password
+        </Button>
+        <Text>or</Text>
+        <Button
+          mode="text"
+          labelStyle={styles.labelStyle}
+          onPress={onForgot}>
+          Sign up
         </Button>
       </View>
     </View>

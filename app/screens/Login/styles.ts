@@ -14,13 +14,15 @@ const styles = StyleSheet.create({
   },
   labelStyle: {
     fontSize: 12,
+    textTransform:'capitalize'
   },
   loginButton:{
     marginTop:15
   },
   email:{
     width:250,
-    marginTop:10
+    marginTop:10,
+    height:40
   }
 });
 
