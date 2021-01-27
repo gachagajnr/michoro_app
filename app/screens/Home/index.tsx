@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Button, List } from 'react-native-paper';
+import { Button, List, TextInput } from 'react-native-paper';
 import { Image, ScrollView, Text } from 'react-native';
 import { useDispatch } from 'react-redux';
 import * as loginActions from 'app/store/actions/loginActions';
@@ -16,43 +16,14 @@ const Home: React.FC = () => {
   };
   return (
     <View style={styles.container}>
+      <TextInput
+        mode="outlined"
+        placeholder="Search Art"
+        style={styles.search}
+      />
       <Button icon="logout" mode="contained" onPress={onLogout}>
         Logout
       </Button>
-     
-      <ScrollView>
-        <Text style={{ fontSize: 96 }}>Scroll me plz</Text>
-        <Image source={logo} />
-        <Image source={logo} />
-        <Image source={logo} />
-        <Image source={logo} />
-        <Image source={logo} />
-        <Text style={{ fontSize: 96 }}>If you like</Text>
-        <Image source={logo} />
-        <Image source={logo} />
-        <Image source={logo} />
-        <Image source={logo} />
-        <Image source={logo} />
-        <Text style={{ fontSize: 96 }}>Scrolling down</Text>
-        <Image source={logo} />
-        <Image source={logo} />
-        <Image source={logo} />
-        <Image source={logo} />
-        <Image source={logo} />
-        <Text style={{ fontSize: 96 }}>What's the best</Text>
-        <Image source={logo} />
-        <Image source={logo} />
-        <Image source={logo} />
-        <Image source={logo} />
-        <Image source={logo} />
-        <Text style={{ fontSize: 96 }}>Framework around?</Text>
-        <Image source={logo} />
-        <Image source={logo} />
-        <Image source={logo} />
-        <Image source={logo} />
-        <Image source={logo} />
-        <Text style={{ fontSize: 80 }}>React Native</Text>
-      </ScrollView>
     </View>
   );
 };
