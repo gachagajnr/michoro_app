@@ -1,8 +1,8 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Text, Button } from 'react-native-paper';
+import { Button, TextInput } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { Formik } from 'formik';
 import * as loginActions from 'app/store/actions/loginActions';
 import styles from './styles';
 import { ILoginState } from 'app/models/reducers/login';
@@ -20,10 +20,40 @@ const Login: React.FC = () => {
   return (
     <View style={styles.container}>
       <View style={styles.container}>
-        <Text style={styles.login}>Login Status : {id}</Text>
-        <Button icon="login" mode="outlined" onPress={onLogin}>
-          Login
-        </Button>
+        <Formik
+          initialValues={{ email: '', password: '' }}
+          onSubmit={(values) => console.log(values)}>
+          {({ handleChange, handleBlur, handleSubmit, values }) => (
+            <View>
+              <TextInput
+                mode="outlined"
+                label='Email'
+                style={styles.email}
+                placeholder="Email"
+                onChangeText={handleChange('email')}
+                onBlur={handleBlur('email')}
+                value={values.email}
+              />
+              <TextInput
+                mode="outlined"
+                label='Password'
+                style={styles.email}
+                placeholder="Password"
+                onChangeText={handleChange('password')}
+                onBlur={handleBlur('password')}
+                value={values.password}
+              />
+
+              <Button
+                style={styles.loginButton}
+                mode="contained"
+                onPress={handleSubmit}>
+                Login
+              </Button>
+            </View>
+          )}
+        </Formik>
+
         <Button
           mode="text"
           style={styles.forgot}

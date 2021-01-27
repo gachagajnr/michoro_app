@@ -15,6 +15,13 @@ const styles = StyleSheet.create({
   labelStyle: {
     fontSize: 12,
   },
+  loginButton:{
+    marginTop:15
+  },
+  email:{
+    width:250,
+    marginTop:10
+  }
 });
 
 export default styles;
