@@ -16,10 +16,24 @@ const SignUp: React.FC = () => {
     <View style={styles.container}>
       <View style={styles.container}>
         <Formik
-          initialValues={{ email: '', password: '', confirmpassword: '' }}
+          initialValues={{
+            username: '',
+            email: '',
+            password: '',
+            confirmpassword: '',
+          }}
           onSubmit={(values) => console.log(values)}>
           {({ handleChange, handleBlur, handleSubmit, values }) => (
             <View>
+              <TextInput
+                mode="outlined"
+                label="Username"
+                style={styles.email}
+                placeholder="Username"
+                onChangeText={handleChange('username')}
+                onBlur={handleBlur('username')}
+                value={values.username}
+              />
               <TextInput
                 mode="outlined"
                 label="Email"

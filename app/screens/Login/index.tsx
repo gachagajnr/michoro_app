@@ -15,7 +15,6 @@ interface IState {
 const Login: React.FC = () => {
   const id = useSelector((state: IState) => state.loginReducer.id);
   const dispatch = useDispatch();
-  const onLogin = () => dispatch(loginActions.requestLogin('test', '1234'));
   const onForgot = () => NavigationService.navigate('ForgotPassword');
   const onSignup = () => NavigationService.navigate('SignUp');
 
@@ -23,8 +22,10 @@ const Login: React.FC = () => {
     <View style={styles.container}>
       <View style={styles.container}>
         <Formik
-          initialValues={{ email: '', password: '' }}
-          onSubmit={onLogin}>
+          initialValues={{ email: 'min@gmail.com', password: 'muthomi@2A' }}
+          onSubmit={(values) => {
+            dispatch(loginActions.requestLogin(values.email, values.password));
+          }}>
           {({ handleChange, handleBlur, handleSubmit, values }) => (
             <View>
               <TextInput
