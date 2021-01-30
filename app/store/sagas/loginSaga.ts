@@ -12,7 +12,7 @@ import loginUser from 'app/services/loginUser';
 import * as loginActions from 'app/store/actions/loginActions';
 
 // Our worker Saga that logins the user
-export default function* loginAsync(action) {
+export default function* loginAsync(action:any) {
   yield put(loginActions.enableLoader());
    //how to call api
   const response = yield call(loginUser, action.username, action.password);

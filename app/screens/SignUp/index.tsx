@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { Button, TextInput } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
+import * as signupActions from 'app/store/actions/signupActions';
+
 import { Formik } from 'formik';
 import NavigationService from 'app/navigation/NavigationService';
 
@@ -17,12 +19,20 @@ const SignUp: React.FC = () => {
       <View style={styles.container}>
         <Formik
           initialValues={{
-            username: '',
-            email: '',
-            password: '',
-            confirmpassword: '',
+            username: 'pius',
+            email: 'williampius17@gmail.com',
+            password: '12345678',
+            // confirmpassword: '',
           }}
-          onSubmit={(values) => console.log(values)}>
+          onSubmit={(values) => {
+            dispatch(
+              signupActions.requestSignup(
+                values.username,
+                values.email,
+                values.password,
+              ),
+            );
+          }}>
           {({ handleChange, handleBlur, handleSubmit, values }) => (
             <View>
               <TextInput
@@ -52,7 +62,7 @@ const SignUp: React.FC = () => {
                 onBlur={handleBlur('password')}
                 value={values.password}
               />
-              <TextInput
+              {/* <TextInput
                 mode="outlined"
                 label="Confirm Password"
                 style={styles.email}
@@ -60,7 +70,7 @@ const SignUp: React.FC = () => {
                 onChangeText={handleChange('confirmpassword')}
                 onBlur={handleBlur('confirmpassword')}
                 value={values.password}
-              />
+              /> */}
 
               <Button
                 style={styles.loginButton}

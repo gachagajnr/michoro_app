@@ -16,7 +16,7 @@ const initialState: ISignupState = {
   password: '',
 };
 
-export const loginReducer = createReducer(initialState, {
+export const signupReducer = createReducer(initialState, {
   [types.SIGNUP_REQUEST](state: ISignupState, action: ISignupRequestState) {
     return {
       ...state,

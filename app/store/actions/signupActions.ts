@@ -4,7 +4,7 @@
 import * as types from './types';
 import { ISignupResponse } from 'app/models/api/signup';
 
-export function requestSignup(username: string,email:string, password: string) {
+export function requestSignup(username: string, email:string, password: string) {
   return {
     type: types.SIGNUP_REQUEST,
     username,
