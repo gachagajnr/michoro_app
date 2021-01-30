@@ -16,14 +16,12 @@ export default function* signupAsync(action:any) {
   yield put(signupActions.enableLoader());
    //how to call api
    const response = yield call(signupUser, action.username, action.email, action.password);
-  console.log("SIGNUP RESPONSE",response)
-  //mock response
+  
   // const response = { success: true, data: { id: 1 }, message: 'Success' };
 
   if (response._id) {
-    yield put(signupActions.onSignupResponse(response));
+    yield put(signupActions.onSignupResponse(response._id));
     yield put(signupActions.disableLoader());
-
     // no need to call navigate as this is handled by redux store with SwitchNavigator
     //yield call(navigationActions.navigateToHome);
   } else {
