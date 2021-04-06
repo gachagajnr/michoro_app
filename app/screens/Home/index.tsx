@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Button, List, TextInput } from 'react-native-paper';
+import { Button, List, Searchbar } from 'react-native-paper';
 import { Image, ScrollView, Text } from 'react-native';
 import { useDispatch } from 'react-redux';
 import * as loginActions from 'app/store/actions/loginActions';
@@ -16,14 +16,10 @@ const Home: React.FC = () => {
   };
   return (
     <View style={styles.container}>
-      <TextInput
-        mode="outlined"
-        placeholder="Search Art"
-        style={styles.search}
-      />
-      <Button icon="logout" mode="contained" onPress={onLogout}>
+      <Searchbar mode="outlined" placeholder="Search " style={styles.search} />
+      {/* <Button icon="logout" mode="contained" onPress={onLogout}>
         Logout
-      </Button>
+      </Button> */}
     </View>
   );
 };

@@ -99,10 +99,10 @@ const App: React.FC<IProps> = (props: IProps) => {
       <Stack.Navigator>
         {isLoggedIn ? (
           <Stack.Screen
-            name="Michoro"
+            name="Michoro Art"
             component={LoggedInNavigator}
             options={{
-              headerTitleAlign: 'center',
+              headerTitleAlign: 'left',
               headerRight: () => <ThemeController />,
             }}
           />

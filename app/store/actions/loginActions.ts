@@ -4,10 +4,10 @@
 import * as types from './types';
 import { ILoginResponse } from 'app/models/api/login';
 
-export function requestLogin(username: string, password: string) {
+export function requestLogin(email: string, password: string) {
   return {
     type: types.LOGIN_REQUEST,
-    username,
+    email,
     password,
   };
 }

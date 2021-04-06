@@ -9,6 +9,7 @@ import {
   ISignupRequestState,
   ISignupResponseState,
 } from 'app/models/actions/signup';
+
 const initialState: ISignupState = {
   isLoggedIn: false,
   email:'',
@@ -31,7 +32,7 @@ export const signupReducer = createReducer(initialState, {
   [types.SIGNUP_RESPONSE](state: ISignupState, action: ISignupResponseState) {
     return {
       ...state,
-      id: action.response.id,
+      _id: action.response._id,
      };
   },
   [types.SIGNUP_FAILED](state: ISignupState) {

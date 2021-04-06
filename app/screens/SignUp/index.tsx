@@ -21,7 +21,7 @@ const SignUp: React.FC = () => {
           initialValues={{
             username: 'pius',
             email: 'williampius17@gmail.com',
-            password: '12345678',
+            password: 'muthomi@3A',
             // confirmpassword: '',
           }}
           onSubmit={(values) => {

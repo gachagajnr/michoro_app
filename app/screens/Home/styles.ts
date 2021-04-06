@@ -8,9 +8,9 @@ const styles = StyleSheet.create({
   },
   search:{
     width:290,
-    borderRadius:30,
+    // borderRadius:30,
     margin:10,
-    height:40
+    // height:30
   }
 });
 

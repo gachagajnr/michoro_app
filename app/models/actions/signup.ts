@@ -6,7 +6,7 @@ export interface ISignupRequestState {
 }
 
 interface IResponse {
-  id: number;
+  _id: string;
 }
 
 export interface ISignupResponseState {

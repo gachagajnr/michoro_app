@@ -1,3 +1,3 @@
 export interface ISignupResponse {
-  id: number;
+  _id: string;
 }

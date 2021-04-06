@@ -4,7 +4,7 @@ import feathers from '@feathersjs/feathers';
 import socketio from '@feathersjs/socketio-client';
 import authentication from '@feathersjs/authentication-client';
 
-const socket = io('http://10.0.2.2:3030', {
+const socket = io('http://192.168.0.12:3030', {
   transports: ['websocket'],
   forceNew: true,
   pingInterval: 10000,
