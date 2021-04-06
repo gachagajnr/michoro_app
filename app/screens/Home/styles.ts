@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   search:{
-    width:290,
+    // width:290,
     // borderRadius:30,
     margin:10,
     // height:30
