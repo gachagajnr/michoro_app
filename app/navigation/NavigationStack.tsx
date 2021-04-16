@@ -2,6 +2,7 @@ import * as React from 'react';
 import { NavigationContainer, Theme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useSelector } from 'react-redux';
+import { StatusBar } from 'react-native';
 
 import { navigationRef } from './NavigationService';
 
@@ -21,12 +22,12 @@ const AuthStack = createStackNavigator();
 const LoggedInStack = createStackNavigator();
 
 const homeOptions = {
-  // title: 'Home',
+  title: 'Michoro Art',
   headerTitleStyle: {
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
   },
+  headerTitleAlign: 'center',
   headerRight: () => <ThemeController />,
-  headerShown: false,
 };
 
 interface IState {
@@ -87,7 +88,7 @@ const LoggedInNavigator = () => (
     <Stack.Screen
       name="Detail"
       component={Detail}
-      options={({ route }) => ({ title: route.params.name, })}
+      options={({ route }) => ({ title: route.params.name })}
     />
   </LoggedInStack.Navigator>
 );
@@ -100,9 +101,9 @@ const App: React.FC<IProps> = (props: IProps) => {
 
   return (
     <NavigationContainer ref={navigationRef} theme={theme}>
-      {/* <StatusBar barStyle={theme.dark ? 'light-content' : 'dark-content'} /> */}
+      <StatusBar barStyle={theme.dark ? 'light-content' : 'dark-content'} />
 
-      <Stack.Navigator>
+      <Stack.Navigator headerMode="none">
         {isLoggedIn ? (
           <Stack.Screen
             name="Michoro Art"
