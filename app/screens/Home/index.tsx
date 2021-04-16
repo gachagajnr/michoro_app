@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import MasonryList from 'react-native-masonry-list';
 import { Searchbar } from 'react-native-paper';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, View, Text } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { IHomeState } from 'app/models/reducers/initialize';
 import * as initActions from 'app/store/actions/initializeActions';
@@ -13,14 +13,11 @@ interface IState {
   initializeReducer: IHomeState;
 }
 
-const Home: React.FC = ({}) => {
+const Home: React.FC = ({ navigation }) => {
   const arts = useSelector((state: IState) => state.initializeReducer.arts);
 
   const dispatch = useDispatch();
-  const [columns, setColumns] = useState({
-    columns: 2,
-    statusBarPaddingTop: isIPhoneX() ? 30 : platform === 'ios' ? 20 : 0,
-  });
+
   useEffect(() => {
     dispatch(initActions.requestArts());
   }, []);
@@ -34,23 +31,13 @@ const Home: React.FC = ({}) => {
       <ScrollView style={{ height: '100%', width: '100%' }}>
         <MasonryList
           // columns={columns}
-          images={
-            arts.length > 0
-              ? arts.map((art) => {
-                  return {
-                    uri:
-                      `https://michoroarts.s3.us-east-2.amazonaws.com/` +
-                      art.art,
-                    // id: item._id,
-                  };
-                })
-              : null
-          }
+          images={arts.length > 0 ? arts : null}
           // imageContainerStyle={{ backgroundColor: '#000' }}
           onPressImage={(item: object, index: number) =>
-            NavigationService.navigate('Detail', {
+            navigation.push('Detail', {
               item: item,
               _id: index,
+              name: item.name,
             })
           }
           contentContainerStyle={{ flexWrap: 'wrap', flexDirection: 'row' }}
@@ -61,6 +48,14 @@ const Home: React.FC = ({}) => {
               // flexDirection: 'row',
             }
           }
+          renderIndividualFooter={(item) => {
+            return (
+              <View>
+                <Text>{item.name}</Text>
+                <Text>{item.price}</Text>
+              </View>
+            );
+          }}
 
           // Version *2.14.0 update
           // onEndReached={() => {

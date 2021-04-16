@@ -3,26 +3,22 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-    // flexDirection: 'row',
-    // backgroundColor: '#000',
   },
-  search: {
-    margin: 10,
+  
+  scrollView: {
+    backgroundColor: 'white',
+    padding: 10,
   },
   itemView: {
-    height: 150,
+    height: '100%',
     width: 150,
     margin: 10,
-    // maxHeight: 100,
-    // maxWidth: 100,
   },
   stretch: {
-    width: '90%',
-    height: '70%',
-    padding: 10,
-    // resizeMode: 'stretch',
+    width: '100%',
+    height: 400,
+    padding: 5,
+    resizeMode: 'contain',
   },
 });
 

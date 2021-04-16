@@ -84,7 +84,11 @@ const AuthNavigator = () => {
 const LoggedInNavigator = () => (
   <LoggedInStack.Navigator>
     <Stack.Screen name="Home" component={Home} options={homeOptions} />
-    <Stack.Screen name="Detail" component={Detail}  />
+    <Stack.Screen
+      name="Detail"
+      component={Detail}
+      options={({ route }) => ({ title: route.params.name, })}
+    />
   </LoggedInStack.Navigator>
 );
 
@@ -104,13 +108,14 @@ const App: React.FC<IProps> = (props: IProps) => {
             name="Michoro Art"
             component={LoggedInNavigator}
             options={{
-              headerTitleAlign: 'left',
+              headerTitleAlign: 'center',
               headerRight: () => <ThemeController />,
+              // title:''
             }}
           />
         ) : (
           <Stack.Screen
-            name="Michoro"
+            name="Michoro Art"
             component={AuthNavigator}
             options={{
               // When logging out, a pop animation feels intuitive
