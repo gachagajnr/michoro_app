@@ -15,8 +15,8 @@ const initialState: IHomeState = {
   arts_error: '',
 };
 
-export const loginReducer = createReducer(initialState, {
-  [types.ARTS_REQUEST](state: IHomeState, ) {
+export const initializeReducer = createReducer(initialState, {
+  [types.ARTS_REQUEST](state: IHomeState) {
     return {
       ...state,
     };

@@ -9,10 +9,11 @@ import Login from 'app/screens/Login';
 import SignUp from 'app/screens/SignUp';
 
 import Home from 'app/screens/Home';
+import Detail from 'app/screens/Detail';
+
 import ForgotPassword from 'app/screens/ForgotPassword';
 
 import ThemeController from '../components/ThemeController';
-import { StatusBar } from 'react-native';
 import { ILoginState } from 'app/models/reducers/login';
 
 const Stack = createStackNavigator();
@@ -83,6 +84,7 @@ const AuthNavigator = () => {
 const LoggedInNavigator = () => (
   <LoggedInStack.Navigator>
     <Stack.Screen name="Home" component={Home} options={homeOptions} />
+    <Stack.Screen name="Detail" component={Detail}  />
   </LoggedInStack.Navigator>
 );
 

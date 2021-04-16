@@ -18,12 +18,11 @@ const styles = StyleSheet.create({
     // maxHeight: 100,
     // maxWidth: 100,
   },
-  image: {
-    height: 130,
-    width: 130,
-     
-    // maxHeight: 100,
-    // maxWidth: 100,
+  stretch: {
+    width: '90%',
+    height: '70%',
+    padding: 10,
+    // resizeMode: 'stretch',
   },
 });
 

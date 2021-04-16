@@ -18,8 +18,7 @@ export default function* initializeAsync() {
 
   //mock response
   // const response = { success: true, data: { id: 1 }, message: 'Success' };
-  console.log('FETCHING ARTS', response);
-  if (response.data) {
+   if (response.data) {
     yield put(initActions.onArtsResponse(response.data));
     yield put(initActions.disableLoader());
 
