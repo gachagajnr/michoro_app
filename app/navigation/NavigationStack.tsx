@@ -11,6 +11,9 @@ import SignUp from 'app/screens/SignUp';
 
 import Home from 'app/screens/Home';
 import Detail from 'app/screens/Detail';
+import Account from 'app/screens/Account';
+import Upload from 'app/screens/Upload';
+
 
 import ForgotPassword from 'app/screens/ForgotPassword';
 
@@ -90,6 +93,8 @@ const LoggedInNavigator = () => (
       component={Detail}
       options={({ route }) => ({ title: route.params.name })}
     />
+    <Stack.Screen name="Account" component={Account} options={homeOptions} />
+    <Stack.Screen name="Upload" component={Upload} options={homeOptions} />
   </LoggedInStack.Navigator>
 );
 
